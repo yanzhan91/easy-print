@@ -1,3 +1,59 @@
 # easy-print
 
 [![Maven Build](https://github.com/yanzhan91/easy-print/actions/workflows/maven.yml/badge.svg)](https://github.com/yanzhan91/easy-print/actions/workflows/maven.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yanzhan91/easy-print/blob/main/LICENSE)
+
+Never use `system.out.println()` again!
+
+### Features
+
+1. `print(...)` or `p(...)` to replace `system.out.println()`
+2. Toggle on/off prints in higher environments with `EasyPrint.enable(false)` or using environment variable `easyprint.enabled = false`
+3. Spy on method parameters allowing you to know exactly what you're passing in
+    ```
+    int a = 3;
+    int b = 4;
+    int c = 5;
+    boolean result = isPythagoreanTriple(p(a), p(b), p(c));
+    print(result)
+    ```
+    ```
+    >>> com.package.class_name > method_name:line_number (java.lang.Integer) - 3
+    >>> com.package.class_name > method_name:line_number (java.lang.Integer) - 4
+    >>> com.package.class_name > method_name:line_number (java.lang.Integer) - 5
+    >>> com.package.class_name > method_name:line_number (java.lang.Boolean) - true
+    ```
+4. Display package, class, method, line number, and even the type of printed argument
+    `com.yzdevelopment.easyprint.EasyPrintTest > simpleTest:34 (java.lang.String) - Hello World`
+    
+    Reduce verbiage by optionally toggling on/off line number and arguement type
+    
+ ### Usage
+ 
+```
+<groupId>com.yzdevelopment</groupId>
+<artifactId>easy-print</artifactId>
+<version>{Version}</version>
+```
+
+#### Imports
+
+`import static com.yzdevelopment.easyprint.EasyPrint.print;`
+`import static com.yzdevelopment.easyprint.EasyPrint.p;`
+
+```
+print("I'm printing a string")
+p("This is a shorter version")
+```
+```
+>>> com.package.class_name > method_name:line_number (java.lang.String) - I'm printing a string
+>>> com.package.class_name > method_name:line_number (java.lang.String) - This is a shorter version
+```
+
+### Customization
+
+```
+EasyPrint.enable(true)
+EasyPrint.setShowLineNumber(true)
+EasyPrint.setShowType(true)
+```

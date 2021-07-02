@@ -48,28 +48,7 @@ public class EasyPrintTest {
     }
 
     @Test
-    public void test_spy() {
-        Integer result = spy(123456);
-
-        assertThat(result, is(123456));
-        assertThat(myOut.toString(), containsString("com.yzdevelopment.easyprint.EasyPrintTest"));
-        assertThat(myOut.toString(), containsString("test_spy:"));
-        assertThat(myOut.toString(), containsString("123456"));
-    }
-
-    @Test
-    public void test_s() {
-        String result = spy("123456");
-
-        assertThat(result, is("123456"));
-        assertThat(myOut.toString(), containsString("com.yzdevelopment.easyprint.EasyPrintTest"));
-        assertThat(myOut.toString(), containsString("test_s:"));
-        assertThat(myOut.toString(), containsString("123456"));
-    }
-
-    @Test
     public void test_class() {
-
         class SampleTestClass {
             private final int one = 1;
             private final String two = "2";

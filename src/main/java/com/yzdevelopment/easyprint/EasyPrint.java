@@ -27,8 +27,14 @@ public final class EasyPrint {
         return Boolean.parseBoolean(env.get(envName)) || configEnabled;
     }
 
-    public static <T> void print(T t) {
+    public static <T> T print(T t) {
         print(t, 3);
+        return t;
+    }
+
+    public static <T> T p(T t) {
+        print(t, 3);
+        return t;
     }
 
     private static <T> void print(T t, int callerIndex) {
@@ -50,19 +56,5 @@ public final class EasyPrint {
             sb.append(" - ").append(t.toString());
             System.out.println(sb.toString());
         }
-    }
-
-    public static <T> void p(T t) {
-        print(t, 3);
-    }
-
-    public static <T> T spy(T t) {
-        print(t, 3);
-        return t;
-    }
-
-    public static <T> T s(T t) {
-        print(t, 3);
-        return t;
     }
 }

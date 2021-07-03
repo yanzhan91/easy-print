@@ -49,11 +49,11 @@ public final class EasyPrint {
                 sb.append(String.format("%s > %s:%s", caller.getClassName(), caller.getMethodName(), caller.getLineNumber()));
             }
 
-            if (enabled(showType, "easyprint.showType")) {
+            if (enabled(showType, "easyprint.showType") && t != null) {
                 sb.append(" (" + t.getClass().getName() + ")");
             }
 
-            sb.append(" - ").append(t.toString());
+            sb.append(" - ").append(t == null ? "null" : t.toString());
             System.out.println(sb.toString());
         }
     }

@@ -70,6 +70,15 @@ public class EasyPrintTest {
     }
 
     @Test
+    public void test_print_null() {
+        print(null);
+
+        assertThat(myOut.toString(), containsString("com.yzdevelopment.easyprint.EasyPrintTest"));
+        assertThat(myOut.toString(), containsString("test_print_null:"));
+        assertThat(myOut.toString(), containsString("null"));
+    }
+
+    @Test
     public void test_enable_flag() {
         EasyPrint.enable(false);
         print(123456);

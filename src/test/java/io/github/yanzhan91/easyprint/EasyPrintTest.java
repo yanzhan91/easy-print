@@ -1,4 +1,4 @@
-package com.yzdevelopment.easyprint;
+package io.github.yanzhan91.easyprint;
 
 import org.junit.After;
 import org.junit.Before;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static com.yzdevelopment.easyprint.EasyPrint.*;
+import static io.github.yanzhan91.easyprint.EasyPrint.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -33,7 +33,7 @@ public class EasyPrintTest {
     public void test_print() {
         print(123456);
 
-        assertThat(myOut.toString(), containsString("com.yzdevelopment.easyprint.EasyPrintTest"));
+        assertThat(myOut.toString(), containsString("io.github.yanzhan91.easyprint.EasyPrintTest"));
         assertThat(myOut.toString(), containsString("test_print:"));
         assertThat(myOut.toString(), containsString("123456"));
     }
@@ -42,7 +42,7 @@ public class EasyPrintTest {
     public void test_p() {
         p("123456");
 
-        assertThat(myOut.toString(), containsString("com.yzdevelopment.easyprint.EasyPrintTest"));
+        assertThat(myOut.toString(), containsString("io.github.yanzhan91.easyprint.EasyPrintTest"));
         assertThat(myOut.toString(), containsString("test_p:"));
         assertThat(myOut.toString(), containsString("123456"));
     }
@@ -64,7 +64,7 @@ public class EasyPrintTest {
 
         print(new SampleTestClass());
 
-        assertThat(myOut.toString(), containsString("com.yzdevelopment.easyprint.EasyPrintTest"));
+        assertThat(myOut.toString(), containsString("io.github.yanzhan91.easyprint.EasyPrintTest"));
         assertThat(myOut.toString(), containsString("test_class:"));
         assertThat(myOut.toString(), containsString("Test{one=1, two='2'}"));
     }
@@ -73,7 +73,7 @@ public class EasyPrintTest {
     public void test_print_null() {
         print(null);
 
-        assertThat(myOut.toString(), containsString("com.yzdevelopment.easyprint.EasyPrintTest"));
+        assertThat(myOut.toString(), containsString("io.github.yanzhan91.easyprint.EasyPrintTest"));
         assertThat(myOut.toString(), containsString("test_print_null:"));
         assertThat(myOut.toString(), containsString("null"));
     }

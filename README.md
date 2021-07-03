@@ -14,13 +14,13 @@ Never use `system.out.println()` again!
     
 ### Usage
 ```
-<groupId>com.yzdevelopment</groupId>
+<groupId>io.github.yanzhan91</groupId>
 <artifactId>easy-print</artifactId>
 <version>{version}</version>
 ```
 ```
-import static com.yzdevelopment.easyprint.EasyPrint.print;
-import static com.yzdevelopment.easyprint.EasyPrint.p;
+import static EasyPrint.print;
+import static EasyPrint.p;
 
 print("I'm printing a string")
 p("This is a shorter method name")

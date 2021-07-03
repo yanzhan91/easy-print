@@ -1,4 +1,4 @@
-package com.yzdevelopment.easyprint;
+package io.github.yanzhan91.easyprint;
 
 import java.util.Map;
 

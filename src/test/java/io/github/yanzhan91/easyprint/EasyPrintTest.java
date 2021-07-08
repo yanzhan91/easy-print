@@ -77,12 +77,4 @@ public class EasyPrintTest {
         assertThat(myOut.toString(), containsString("test_print_null:"));
         assertThat(myOut.toString(), containsString("null"));
     }
-
-    @Test
-    public void test_enable_flag() {
-        EasyPrint.enable(false);
-        print(123456);
-
-        assertThat(myOut.toString(), is(""));
-    }
 }

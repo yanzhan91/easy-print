@@ -8,7 +8,7 @@ Never use `system.out.println()` again!
 ### Features
 
 1. `print(...)` or `p(...)` to replace `system.out.println()`
-2. Toggle on/off prints in higher environments with `EasyPrint.enable(false)` or using environment variable `easyprint.enabled = false`
+2. Toggle on/off prints in higher environments with `EasyPrint.enable(false)` or using environment variable `EASYPRINT_ENABLED = false`
 3. Spy on method parameters allowing you to know exactly what you're passing in. See below for examples.
 4. Display package, class, method, line number, and even the type of printed argument. Reduce output verbiage by optionally toggling on/off configurations.
     
@@ -49,7 +49,7 @@ EasyPrint.setShowType(true)
 ```
 Or with environment variables (this takes precedence)
 ```
-easyprint.enabled = false
-easyprint.showLineNumber = false
-easyprint.showType = false 
+EASYPRINT_ENABLED = false
+EASYPRINT_SHOWLINENUMBER = false
+EASYPRINT_SHOWTYPE = false 
 ```

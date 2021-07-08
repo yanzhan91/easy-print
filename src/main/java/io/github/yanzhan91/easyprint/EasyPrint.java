@@ -24,7 +24,11 @@ public final class EasyPrint {
 
     private static boolean enabled(boolean configEnabled, String envName) {
         Map<String, String> env = System.getenv();
-        return Boolean.parseBoolean(env.get(envName)) || configEnabled;
+        if (env.containsKey(envName)) {
+            return Boolean.parseBoolean(env.get(envName));
+        } else {
+            return configEnabled;
+        }
     }
 
     public static <T> T print(T t) {
@@ -38,18 +42,18 @@ public final class EasyPrint {
     }
 
     private static <T> void print(T t, int callerIndex) {
-        if (enabled(showPrint, "easyprint.enabled")) {
+        if (enabled(showPrint, "EASYPRINT_ENABLED")) {
 
             StringBuilder sb = new StringBuilder();
 
-            if (enabled(showLineNumber, "easyprint.showLineNumber")) {
+            if (enabled(showLineNumber, "EASYPRINT_SHOWLINENUMBER")) {
                 StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
                 StackTraceElement caller = stackTraceElements[callerIndex];
 
                 sb.append(String.format("%s > %s:%s", caller.getClassName(), caller.getMethodName(), caller.getLineNumber()));
             }
 
-            if (enabled(showType, "easyprint.showType") && t != null) {
+            if (enabled(showType, "EASYPRINT_SHOWTYPE") && t != null) {
                 sb.append(" (" + t.getClass().getName() + ")");
             }
 
